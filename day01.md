@@ -43,9 +43,49 @@
 	- #ifndef、#define、#endif 可以针对一个文件中的部分代码，而#pragma once 只能只对整个文件
 
 ### 引用（Refercence）
+	```
+		int age = 20;
+		int &rage = age;
+	```
+	- 引用相当于变量的别名，所有类型都可以有引用
+	- 引用是弱化了的指针，在定义的时候必须初始化，一旦指向了某个变量就不可以再改变
 
 ### const 
+
 	- const修饰的变量是常量，定义的时候必须初始化，且以后不能改变
+	- const修饰的是右边的部分
+	```
+		int age = 10;
+
+		// const 修饰的是*p0，所以*p0是常量，p0不是常量
+		const int *p0 = &age;
+		// 同上
+		int const *p1 = &age;
+		// const 修饰的是p2， p2是常量，*p2 不是常量
+		int * const p2 = &age;
+		// p3和*p3都是常量
+		const int * const p3 = &age;
+		// p4和*p4都是常量
+		int const * const p4 = &age;
+
+	```
+
+### 常引用
+	- 引用被const修饰后就不能通过引用修改数据了，称为常引用
+	- const必须写在&符号的左边，才算是常引用
+	- 当常引用指向了不同类型的数据时，会产生临时变量，即引用指向的并不是初始化是的那个变量
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
