@@ -17,16 +17,16 @@
 	1. 在c++文件中调用c文件中的c方法
 	2. 为了让自己的c文件即支持c语言调用也支持c++语言的调用可以这样设计对应的.h文件
 ```
-	#ifndef sum_h
-	#define sum_h
-	#ifdef __cplusplus
-	extern "C" {
-	#endif
-    	int sum(int a, int b);
-	#ifdef __cplusplus
-	}
-	#endif
-	#endif /* sum_h */
+#ifndef sum_h
+#define sum_h
+#ifdef __cplusplus
+extern "C" {
+#endif
+ 	int sum(int a, int b);
+#ifdef __cplusplus
+}
+#endif
+#endif /* sum_h */
 ```
 
 ### 函数的默认参数
@@ -51,8 +51,8 @@
 
 ### 引用（Refercence）
 ```
-		int age = 20;
-		int &rage = age;
+int age = 20;
+int &rage = age;
 ```
 	- 引用相当于变量的别名，所有类型都可以有引用
 	- 引用是弱化了的指针，在定义的时候必须初始化，一旦指向了某个变量就不可以再改变
@@ -63,18 +63,18 @@
 	- const修饰的变量是常量，定义的时候必须初始化，且以后不能改变
 	- const修饰的是右边的部分
 ```
-		int age = 10;
+int age = 10;
 
-		// const 修饰的是*p0，所以*p0是常量，p0不是常量
-		const int *p0 = &age;
-		// 同上
-		int const *p1 = &age;
-		// const 修饰的是p2， p2是常量，*p2 不是常量
-		int * const p2 = &age;
-		// p3和*p3都是常量
-		const int * const p3 = &age;
-		// p4和*p4都是常量
-		int const * const p4 = &age;
+// const 修饰的是*p0，所以*p0是常量，p0不是常量
+const int *p0 = &age;
+// 同上
+int const *p1 = &age;
+// const 修饰的是p2， p2是常量，*p2 不是常量
+int * const p2 = &age;
+// p3和*p3都是常量
+const int * const p3 = &age;
+// p4和*p4都是常量
+int const * const p4 = &age;
 
 ```
 
@@ -84,12 +84,13 @@
 	- 当常引用指向了不同类型的数据时，会产生临时变量，即引用指向的并不是初始化是的那个变量
 
 ### 数组的引用
-	- int array[] = {10,20,30};
-	1. 写法一
-	int (&rarray1)[3] = array;
-	2. 写法二
-	int *const &array2 = array;
-
+```
+- int array[] = {10,20,30};
+1. 写法一
+int (&rarray1)[3] = array;
+2. 写法二
+int *const &array2 = array;
+```
 
 ### 汇编语言
 	[汇编语言的专题](./汇编语言.md)
@@ -123,13 +124,13 @@
 	3. new[] ---- delete[] ：申请的内存会被初始化0
 	- memset：memset函数是将较大的数据结构（对象、数组等）内存清零的比较快的方法
 ```
-	Person person;
-	person.m_id = 1;
-	person.m_age = 10;
-	memset(&person,0,sizeof(person));
+Person person;
+person.m_id = 1;
+person.m_age = 10;
+memset(&person,0,sizeof(person));
 
-	Person persons[] = {{1,20},{2,23},{34,34}};
-	memset(persons,0,sizeof(persons));
+Person persons[] = {{1,20},{2,23},{34,34}};
+memset(persons,0,sizeof(persons));
 
 ```
 ### 对象的内存
