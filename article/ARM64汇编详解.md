@@ -92,10 +92,12 @@ ret
 ```
 
 1. mov
+![](../resource/ARM64/MOV.png)
 - mov 目的寄存器, 源操作数
 - mov x1, #0x12
 
 2. add
+![](../resource/ARM64/ADD.png)
 ```
 ;_add函数的实现
 _add:
@@ -104,6 +106,7 @@ add x0, x0, x1
 ret
 ```
 3. sub
+![](../resource/ARM64/SUB.png)
 ```
 ;_sub函数的实现
 _sub:
@@ -112,6 +115,7 @@ ret
 ```
 
 4. cmp
+![](../resource/ARM64/CMP.png)
 ```
 ;test函数实现,
 _test:
@@ -123,6 +127,7 @@ cmp x0, x1
 ret
 ```
 5. b
+![](../resource/ARM64/跳转指令.png)
 - 跳转指令，类似8086的jump指令，类似c语言的goto
 ```
 ;_testCMP的函数实现测试b指令，一下函数执行的时候直接跳转到mycode的位置，所以不会执行 mov x0, #0x4
